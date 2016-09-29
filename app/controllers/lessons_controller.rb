@@ -22,6 +22,7 @@ class LessonsController < ApplicationController
     if @lesson.update_attributes lesson_params
       if params[:finish] || @lesson.time_out?
         @lesson.unchecked!
+        LessonWorker.perform_async @lesson.id, LessonWorker::FINISH_EXAM
         flash[:success] = t "flash.completed_lesson"
       end
     else

@@ -125,3 +125,8 @@ en:
     created_at: "Date created: %{time_created}"
 
   answer: "Your answer"
+
+  mail:
+    remind_subject: "Start exam"
+    result_subject: "Finish exam"
+    monthly_subject: "Monthly report"

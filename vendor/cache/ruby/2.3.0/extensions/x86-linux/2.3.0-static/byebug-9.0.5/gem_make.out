@@ -1,0 +1,19 @@
+current directory: /home/linh/workspace/fels_187/vendor/cache/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+/home/linh/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20160930-26623-1gwr53k.rb extconf.rb
+creating Makefile
+
+current directory: /home/linh/workspace/fels_187/vendor/cache/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/linh/workspace/fels_187/vendor/cache/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR="
+compiling context.c
+compiling threads.c
+compiling locker.c
+compiling breakpoint.c
+compiling byebug.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/linh/workspace/fels_187/vendor/cache/ruby/2.3.0/gems/byebug-9.0.5/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20160930-26623-14160ie/byebug

@@ -5,6 +5,7 @@ class Ability
     user ||= User.new
     if user.is_admin?
       can :manage, :all
+      cannot :create, Lesson
     else
       if namespace == "admin"
         cannot :manage, :all

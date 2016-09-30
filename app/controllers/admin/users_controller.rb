@@ -14,7 +14,7 @@ class Admin::UsersController < Admin::BaseController
   def create
     if @user.save
       flash[:success] = t "flash.create_user_success"
-      redirect_to admin_root_path
+      redirect_to admin_users_path
     else
       render :new
     end

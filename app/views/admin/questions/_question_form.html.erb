@@ -18,5 +18,7 @@
       <%= link_to_add_fields t("btn.add_answer"), f, :answers %>
     </div>
   </div>
-  <p><%= f.submit t("btn.submit"), class: "btn btn-primary" %></p>
+  <%= f.submit t("btn.submit"), class: "btn btn-primary" %>
+  <%= link_to t("btn.delete"), [:admin, @question], method: :delete,
+  data: {confirm: t("confirm.delete")}, class: "btn btn-danger" %>
 <% end %>

@@ -2,8 +2,8 @@
   <%= f.label :content, t("answer_content") %>
   <%= f.text_field :content, class: "form-control" %>
   <div class="correct-choose">
-    <%= f.label :is_correct %>
     <%= f.check_box :is_correct, class: "check" %>&nbsp;
+    <%= f.label :is_correct %>
     <%= link_to_remove_fields t("btn.remove"), f %>
   </div>
 </span>

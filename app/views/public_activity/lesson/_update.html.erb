@@ -9,7 +9,7 @@
         <%= link_to activity.owner.name, activity.owner if activity.owner %>
       </b>
       <%= t "lesson.learned" %>
-      <%= pluralize activity.trackable.results.count, t("lesson.word") %>
+      <%= pluralize activity.trackable.results.count, t("lesson.question") %>
       <%= t("lesson.category") %>
       <%= activity.trackable.category.name %>
     </span>

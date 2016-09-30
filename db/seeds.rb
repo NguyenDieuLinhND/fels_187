@@ -15,13 +15,18 @@ categories = Category.all
 categories.each do |category|
   5.times do |n|
     category.questions.build(
-      content: "#{n}",
+      content: "This is number #{n} question single_choice",
       question_type: 0).save
   end
   5.times do |n|
     category.questions.build(
-      content: "#{n}",
+      content: "This is number #{n} question multiple_choice",
       question_type: 1).save
+  end
+  5.times do |n|
+    category.questions.build(
+      content: "This is number #{n} question text",
+      question_type: 2).save
   end
 end
 
@@ -51,10 +56,4 @@ end
 questions.text.each do |question|
   question.answers.build(content: "answer number 1",
     is_correct: true).save
-  question.answers.build(content: "answer number 2",
-    is_correct: false).save
-  question.answers.build(content: "answer number 3",
-    is_correct: true).save
-  question.answers.build(content: "answer number 4",
-    is_correct: false).save
 end

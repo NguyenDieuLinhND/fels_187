@@ -3,13 +3,19 @@ class Admin::QuestionsController < Admin::BaseController
   before_action :load_params, only: [:new, :edit]
 
   def new
-    @question.answers.build
+    @category = Category.find_by id: params[:category_id]
+    if @category.nil?
+      flash[:danger] = "This category doesn't exist"
+      redirect_to admin_categories_path
+    else
+      @question.answers.build
+    end
   end
 
   def create
     if @question.save
       flash[:success] = t "flash.create_success"
-      redirect_to admin_category_path @question.category
+      redirect_to admin_category_path params[:category_id]
     else
       load_params
       render :new
@@ -22,7 +28,7 @@ class Admin::QuestionsController < Admin::BaseController
   def update
     if @question.update_attributes question_params
       flash[:success] = t "flash.edit_success"
-      redirect_to admin_category_path @question.category
+      redirect_to admin_category_path @question.category.id
     else
       load_params
       render :edit

@@ -6,7 +6,7 @@
   <td><%= lesson.created_at.strftime(Settings.date_time_format) %></td>
   <td><%= lesson.spent_time %></td>
   <td><%= t "lesson.score", score: lesson.score,
-    total: Settings.lesson_size %></td>
+    total: lesson.results.size %></td>
   <td><%= lesson.status %></td>
   <td>
     <%= link_to t("btn.check"), edit_admin_lesson_path(lesson),

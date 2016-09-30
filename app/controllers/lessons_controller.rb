@@ -1,11 +1,16 @@
 class LessonsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @lessons = current_user.lessons.includes :category
+    @lessons = @lessons.order(updated_at: :desc).
+      paginate page: params[:page], per_page: Settings.size_lesson
+  end
   def create
     @lesson = current_user.lessons.new lesson_params
     if @lesson.save
       flash[:success] = t "flash.create_success"
-      redirect_to @lesson.category
+      redirect_to lessons_path
     else
       flash[:danger] = t "flash.create_fail"
       redirect_to :back
@@ -23,7 +28,7 @@ class LessonsController < ApplicationController
       if params[:finish] || @lesson.time_out?
         @lesson.unchecked!
         @lesson.create_activity :update, owner: current_user
-        LessonWorker.perform_async @lesson.id, LessonWorker::FINISH_EXAM
+        # LessonWorker.perform_async @lesson.id, LessonWorker::FINISH_EXAM
         flash[:success] = t "flash.completed_lesson"
       end
     else

@@ -14,7 +14,7 @@ class Result < ApplicationRecord
         state = true
       end
     else
-      if multiple_answers.size == count_correct_answer
+      if  multiple_answers && multiple_answers.size == count_correct_answer
         state = true
         multiple_answers.collect.each do |id|
           unless question.answers.find_by(id: id).is_correct

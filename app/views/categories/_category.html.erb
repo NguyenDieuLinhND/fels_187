@@ -7,5 +7,14 @@
       <b><%= t "title.question_count", question_count: category.questions.size %></b>
       <p><%= category.description %></p><br>
     </div>
+
+    <div class="panel-body">
+      <div class="btn-group" role="group" aria-label="...">
+        <%= form_for Lesson.new do |f| %>
+          <%= f.hidden_field :category_id, value: category.id %>
+          <%= f.submit t("btn.create_lesson"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

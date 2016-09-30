@@ -8,7 +8,7 @@ class Lesson < ApplicationRecord
   has_many :results, dependent: :destroy
 
   before_create :build_result
-  after_create :send_remind_email
+  # after_create :send_remind_email
 
   accepts_nested_attributes_for :results, allow_destroy: true
 

@@ -13,6 +13,7 @@ en:
     category: "Categories"
     users: "Users"
     home: "Home"
+    lesson_list: "Lesson List"
 
   welcome_admin: "Welcome Admin"
 
@@ -41,7 +42,7 @@ en:
     follower: "follower"
 
   notification:
-    logout: "Are you sure want to quit?"
+    logout: "Do you sure want to quit?"
 
   flash:
     not_admin: "You don't have the permission to access this page"
@@ -54,7 +55,7 @@ en:
     delete_fail: "Delete Failed"
     edit_success: "Update Successful"
     edit_fail: "Edit Failed"
-    complete_lesson: "Lesson Complete!"
+    completed_lesson: "Lesson Complete!"
     finish_error: "Error finish lesson"
 
   btn:
@@ -73,6 +74,7 @@ en:
     check: "Check"
     back: "Back to Lesson list"
     done: "Finish Checking"
+    create_lesson: "Create lesson"
 
   title:
     search_name: "name"
@@ -120,7 +122,7 @@ en:
 
   notification:
     must_check: "must be checked."
-    logout: "Are you want to logout?"
+    logout: "Do you want to logout?"
 
   home:
     join_date: "Joined from %{time}"
@@ -134,6 +136,7 @@ en:
     created_at: "Date created: %{time_created}"
     score: "%{score}/%{total}"
     is_correct: "Is Correct"
+    question: "question"
 
   answer:
     your_answer: "Your answer"
@@ -141,8 +144,6 @@ en:
     correct_answer: "Correct Answer: "
     wrong: "Wrong"
     confirm: "Finished!"
-
-  answer: "Your answer"
 
   activity:
     follow: "followed"

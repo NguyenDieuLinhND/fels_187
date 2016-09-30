@@ -30,6 +30,26 @@ function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp('new_' + association, 'g')
   $(link).before(content.replace(regexp, new_id));
+  var type = $('.question_type').val();
+  if(type == 'text'){
+    $('.correct-choose').hide();
+    $('.add_answer').hide();
+    $('.answer').find('input[type=checkbox]').prop('checked', false);
+  }
+  else if(type == 'multiple_choice'){
+    $('input[type=checkbox]').on('click', function(){
+      $(this).prop('checked', true);
+    });
+    $('.correct-choose').show();
+    $('.add_answer').show();
+  }
+  else if(type == 'single_choice'){
+    $('.correct-choose').show();
+    $('.add_answer').show();
+    $('input[type=checkbox]').on('click', function(){
+      $('input[type=checkbox]').not(this).prop('checked', false);
+    });
+  }
 }
 
 
@@ -41,27 +61,41 @@ $(document).on('turbolinks:load', function(){
   else if($('.question_type').val() == 'single_choice'){
     $('.correct-choose').show();
     $('.add_answer').show();
-    $('.answer').on('change', 'input[type=checkbox]',function(){
-      $('.answer').find('input[type=checkbox]').not(this).attr('checked', false);
+    $('input[type=checkbox]').on('click', function(){
+      $('input[type=checkbox]').not(this).prop('checked', false);
     });
   }
-  $('.question_type').on('click', function(){
+  else{
+    $('input[type=checkbox]').on('click', function(){
+      $(this).prop('checked', true);
+    });
+
+    $('.correct-choose').show();
+    $('.add_answer').show();
+  }
+  $('.question_type').bind('change', function(){
     var type = $('.question_type').val();
     if(type == 'text'){
+      $('input[type="checkbox"]').prop('checked', false);
       $('.correct-choose').hide();
       $('.add_answer').hide();
-      $('.answer').find('input[type=checkbox]').attr('checked', false);
+      $('.answer').find('input[type=checkbox]').prop('checked', false);
+    }
+    else if(type == 'multiple_choice'){
+      $('input[type=checkbox]').on('click', function(){
+        $(this).prop('checked', true);
+      });
+      $('input[type="checkbox"]').prop('checked', false);
+      $('.correct-choose').show();
+      $('.add_answer').show();
     }
     else if(type == 'single_choice'){
+      $('input[type="checkbox"]').prop('checked', false);
       $('.correct-choose').show();
       $('.add_answer').show();
-      $('.answer').on('change', 'input[type=checkbox]',function(){
-        $('.answer').find('input[type=checkbox]').not(this).attr('checked', false);
+      $('input[type=checkbox]').on('click', function(){
+        $('input[type=checkbox]').not(this).prop('checked', false);
       });
-    }
-    else{
-      $('.correct-choose').show();
-      $('.add_answer').show();
     }
   });
 });
